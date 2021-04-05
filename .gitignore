@@ -4,4 +4,4 @@
 !.gitignore
 !README.md
 !init.el
-!elisp/**
+!*/elisp/**

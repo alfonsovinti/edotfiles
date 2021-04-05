@@ -1,5 +1,5 @@
 # Ignore everything
-*
+/*
 # except preferences and package list
 !.gitignore
 !README.md

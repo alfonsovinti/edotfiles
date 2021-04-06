@@ -97,7 +97,10 @@
 ;; highlight current line.
 (global-hl-line-mode t)
 
-(set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
-(set-frame-font "Fira Code Nerd Font" nil t)
+(if IS-WINDOWS 
+  (progn (set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 110)
+	 (set-frame-font "FiraCode Nerd Font" nil t))
+  (progn (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
+	 (set-frame-font "Fira Code Nerd Font" nil t)))
 
 (provide 'lib-settings)

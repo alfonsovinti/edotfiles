@@ -1,5 +1,6 @@
 ;; evil mode
 (use-package evil
+  :ensure t
   :init
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)

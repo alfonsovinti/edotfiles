@@ -1,3 +1,6 @@
+(setq package-enable-at-startup nil)
+(setq straight-use-package-by-default t)
+
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -14,12 +17,11 @@
 
 ;; Bootstrap install use-package
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
 
 ;; so package-list-packages includes them
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+;(require 'package)
+;(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+;                         ("org" . "https://orgmode.org/elpa/")
+;                         ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (provide 'lib-package)

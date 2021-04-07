@@ -1,3 +1,10 @@
+
+;; run macro in the q register
+(defun edf-@q ()
+  "apply macro in q register on selected lines."
+  (interactive)
+  (evil-ex-normal (region-beginning) (region-end) "@q"))
+
 ;; evil mode
 (use-package evil
   :ensure t
@@ -34,12 +41,36 @@
   (evil-mode 1)
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+  ;; run macro in the q register
+  (evil-define-key 'visual 'global "Q" #'edf-@q ))
 
 (use-package evil-escape
+  :ensure t
   :init
   (setq evil-escape-key-sequence "kj")
   :config
   (evil-escape-mode 1))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :init
+  (setq evil-collection-company-use-tng nil)  ;; is this a bug in evil-collection?
+  :config
+  (evil-collection-init))
+
+(use-package general
+  :ensure t
+  :config
+  (general-evil-setup t)
+
+  (general-create-definer edf-leader-key-def
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (general-create-definer edf-ltrl-c-keys
+    :prefix "C-c"))
 
 (provide 'lib-evil-mode)

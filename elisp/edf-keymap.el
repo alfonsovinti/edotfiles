@@ -4,4 +4,4 @@
 ;; evil mode take over for buffer scrolling
 (global-set-key (kbd "C-M-u") 'universal-argument)
 
-(provide 'lib-keymap)
+(provide 'edf-keymap)

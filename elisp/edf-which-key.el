@@ -4,4 +4,4 @@
   :config
   (setq which-key-idle-delay 0.6))
 
-(provide 'lib-which-key)
+(provide 'edf-which-key)

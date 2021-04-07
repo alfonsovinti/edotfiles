@@ -7,19 +7,19 @@
 (add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
 ;; settings
-(require 'lib-settings)
+(require 'edf-core)
 
 ;; package
-(require 'lib-package)
+(require 'edf-package)
 
 ;; theme
-(require 'lib-theme)
+(require 'edf-theme)
 
 ;; evil-mode
-(require 'lib-evil-mode)
+(require 'edf-evil-mode)
 
 ;; keymap
-(require 'lib-keymap)
+(require 'edf-keymap)
 
 ;; which-key
-(require 'lib-which-key)
+(require 'edf-which-key)

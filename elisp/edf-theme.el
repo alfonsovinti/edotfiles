@@ -5,4 +5,4 @@
     (setq nord-region-highlight "snowstorm")
   :config (load-theme 'nord t))
 
-(provide 'lib-theme)
+(provide 'edf-theme)

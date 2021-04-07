@@ -73,4 +73,4 @@
   (general-create-definer edf-ltrl-c-keys
     :prefix "C-c"))
 
-(provide 'lib-evil-mode)
+(provide 'edf-evil-mode)

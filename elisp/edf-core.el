@@ -103,4 +103,4 @@
   (progn (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
 	 (set-frame-font "Fira Code Nerd Font" nil t)))
 
-(provide 'lib-settings)
+(provide 'edf-core)

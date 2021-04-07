@@ -24,4 +24,4 @@
 ;                         ("org" . "https://orgmode.org/elpa/")
 ;                         ("gnu" . "https://elpa.gnu.org/packages/")))
 
-(provide 'lib-package)
+(provide 'edf-package)

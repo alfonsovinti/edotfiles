@@ -9,6 +9,7 @@
 (use-package evil
   :ensure t
   :init
+  (setq evil-want-keybinding nil) ;; to fix https://github.com/emacs-evil/evil-collection/issues/60
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
   (setq evil-want-C-u-scroll t)

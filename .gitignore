@@ -3,5 +3,6 @@
 # except preferences and package list
 !.gitignore
 !README.md
+!early-init.el
 !init.el
 !elisp/

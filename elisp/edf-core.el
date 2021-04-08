@@ -107,7 +107,7 @@
 	 (set-frame-font "Fira Code Nerd Font" nil t)))
 
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/  
-(defun edt-minibuffer-setup-hook ()
+(defun edf-minibuffer-setup-hook ()
   (setq gc-cons-threshold gc-cons-threshold-max-val))
 
 (defun edf-minibuffer-exit-hook ()

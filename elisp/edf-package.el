@@ -1,7 +1,5 @@
-(setq package-enable-at-startup nil)
-(setq straight-use-package-by-default t)
-
-;; bootstrap straight.el
+;;; straight.el
+;; https://github.com/raxod502/straight.el/blob/develop/README.md#getting-started
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -15,14 +13,9 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; bootstrap install use-package
+;; https://github.com/raxod502/straight.el/blob/develop/README.md#integration-with-use-package
+;; effectively replace use-package with straight-use-package
 (straight-use-package 'use-package)
-;(setq use-package-always-ensure t)
-
-;; so package-list-packages includes them
-;(require 'package)
-;(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-;                         ("org" . "https://orgmode.org/elpa/")
-;                         ("gnu" . "https://elpa.gnu.org/packages/")))
+(setq straight-use-package-by-default t)
 
 (provide 'edf-package)

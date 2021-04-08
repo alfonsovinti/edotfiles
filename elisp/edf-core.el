@@ -1,18 +1,19 @@
 ;; do not show the startup screen.
 (setq inhibit-startup-message t)
 
-;; common
-(setq visible-bell t
-      ring-bell-function 'ignore
-      make-backup-files nil
-      display-line-numbers-type 'relative)
+;; disable bell
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
+
+;; no make backup files
+(setq make-backup-files nil)
+
+;; lockfiles are evil.
+(setq create-lockfiles nil)
 
 ;; This isn't a typewriter (even if it is a terminal); one space after sentences,
 ;; please.
 (setq sentence-end-double-space nil)
-
-;; lockfiles are evil.
-(setq create-lockfiles nil)
 
 ;; require a trailing newline
 (setq require-final-newline t)
@@ -69,7 +70,7 @@
     (fundamental-mode)))
 (add-hook 'find-file-hook 'lib-find-file-hook )
 
-;; do not kull buffers
+;; do not kill buffers
 (defun lib-do-not-kill-buffers ()
   "Don't let the scratch and Messages buffers die."
   (if (member (buffer-name (current-buffer)) '("*scratch*" "*Messages*"))
@@ -80,6 +81,7 @@
 (add-hook 'kill-buffer-query-functions 'lib-do-not-kill-buffers)
 
 ;; display line number
+(setq display-line-numbers-type 'relative)
 ;(global-display-line-numbers-mode)
 ;; Enable line numbers for some modes
 (dolist (mode '(text-mode-hook
@@ -97,10 +99,21 @@
 ;; highlight current line.
 (global-hl-line-mode t)
 
-(if IS-WINDOWS 
+;; set font
+(if is-windows 
   (progn (set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 110)
 	 (set-frame-font "FiraCode Nerd Font" nil t))
   (progn (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
 	 (set-frame-font "Fira Code Nerd Font" nil t)))
+
+;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/  
+(defun edt-minibuffer-setup-hook ()
+  (setq gc-cons-threshold gc-cons-threshold-max-val))
+
+(defun edf-minibuffer-exit-hook ()
+  (setq gc-cons-threshold gc-cons-threshold-min-val))
+
+(add-hook 'minibuffer-setup-hook #'edf-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook #'edf-minibuffer-exit-hook)
 
 (provide 'edf-core)

@@ -1,7 +1,7 @@
 (setq package-enable-at-startup nil)
 (setq straight-use-package-by-default t)
 
-;; Bootstrap straight.el
+;; bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -15,8 +15,9 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; Bootstrap install use-package
+;; bootstrap install use-package
 (straight-use-package 'use-package)
+;(setq use-package-always-ensure t)
 
 ;; so package-list-packages includes them
 ;(require 'package)

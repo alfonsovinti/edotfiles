@@ -7,8 +7,8 @@
 
 ;; evil mode
 (use-package evil
-  :ensure t
   :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
   (setq evil-want-keybinding nil) ;; to fix https://github.com/emacs-evil/evil-collection/issues/60
   (setq evil-vsplit-window-right t)
   (setq evil-split-window-below t)
@@ -47,22 +47,20 @@
   (evil-define-key 'visual 'global "Q" #'edf-@q ))
 
 (use-package evil-escape
-  :ensure t
+  :requires evil
   :init
   (setq evil-escape-key-sequence "kj")
   :config
   (evil-escape-mode 1))
 
 (use-package evil-collection
-  :ensure t
-  :after evil
+  :requires evil
   :init
   (setq evil-collection-company-use-tng nil)  ;; is this a bug in evil-collection?
   :config
   (evil-collection-init))
 
 (use-package general
-  :ensure t
   :config
   (general-evil-setup t)
 

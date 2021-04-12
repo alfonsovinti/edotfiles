@@ -1,3 +1,20 @@
+;(defconst private-dir  (expand-file-name "private" user-emacs-directory))
+;(defconst temp-dir (format "%s/cache" private-dir)
+;  "Hostname-based elisp temp directories")
+
+;; UTF-8 everything!
+(set-charset-priority 'unicode)
+(setq locale-coding-system   'utf-8)   ; pretty
+(set-terminal-coding-system  'utf-8)   ; pretty
+(set-keyboard-coding-system  'utf-8)   ; pretty
+(set-selection-coding-system 'utf-8)   ; please
+(prefer-coding-system        'utf-8)   ; with sugar on top
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+;; Let me write `y` or `n` even for important stuff
+;; that would normally require me to fully type `yes` or `no`.
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; do not show the startup screen.
 (setq inhibit-startup-message t)
 
@@ -5,11 +22,31 @@
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
+;; prevent extraneous tabs
+(setq-default indent-tabs-mode nil)
+
+;; disable non selected window highlight
+;(setq cursor-in-non-selected-windows nil)
+;(setq highlight-nonselected-windows nil)
+
 ;; no make backup files
 (setq make-backup-files nil)
 
 ;; lockfiles are evil.
 (setq create-lockfiles nil)
+
+;; keep .emacs.d clean
+(use-package no-littering)
+
+(setq auto-save-file-name-transforms
+  `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+(setq custom-file (no-littering-expand-etc-file-name "custom.el"))
+
+(setq temporary-file-directory (no-littering-expand-var-file-name "tmp/"))
+
+;; keeping buffers automatically up-to-date
+(global-auto-revert-mode 1)
 
 ;; This isn't a typewriter (even if it is a terminal); one space after sentences,
 ;; please.
@@ -18,6 +55,9 @@
 ;; require a trailing newline
 (setq require-final-newline t)
 
+;; delete trailing whitespace before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; don't put intitial text in scratch buffer
 (setq initial-scratch-message nil)
 
@@ -25,6 +65,9 @@
 ;; Across all files, make it 128.
 (setq mark-ring-max 64)
 (setq global-mark-ring-max 128)
+
+;; minibuffer history
+(setq history-length 25)
 
 ;; disable tool bar, menu bar, scroll bar.
 (tool-bar-mode -1)
@@ -39,27 +82,15 @@
 
 ;; disable right-side fringes
 (if (fboundp 'set-fringe-style) (set-fringe-style '(8 . 0)))
+;; fringes appear outside the display margins
+;(setq fringes-outside-margins t)
 ;(set-fringe-mode 8)
 
 ;; number columns in the status bar
 ;(column-number-mode)
 
-;; keeping buffers automatically up-to-date
-(global-auto-revert-mode 1)
-
-;; UTF-8 everything!
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-
 ;; enable the mouse in terminal mode.
 (xterm-mouse-mode 1)
-
-;; Let me write `y` or `n` even for important stuff that would normally require
-;; me to fully type `yes` or `no`.
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; find file hook
 (defun lib-find-file-hook ()

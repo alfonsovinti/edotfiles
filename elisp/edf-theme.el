@@ -5,4 +5,6 @@
     (setq nord-region-highlight "snowstorm")
   :config (load-theme 'nord t))
 
+(use-package all-the-icons)
+
 (provide 'edf-theme)

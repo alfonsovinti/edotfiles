@@ -40,21 +40,21 @@
 		    direction
 		    (let ((char (read-char-exclusive (concat
 			"["
-			(propertize "l" 'face '(:foreground "red"))
+			(propertize "l" 'face '(:foreground "#bf616a"))
 			"]"
-			(propertize "eft" 'face '(:foreground "blue"))
+			(propertize "eft" 'face '(:foreground "#81a1c1"))
 			" | ["
-			(propertize "r" 'face '(:foreground "red"))
+			(propertize "r" 'face '(:foreground "#bf616a"))
 			"]"
-			(propertize "ight" 'face '(:foreground "blue"))
+			(propertize "ight" 'face '(:foreground "#81a1c1"))
 			" | ["
-			(propertize "a" 'face '(:foreground "red"))
+			(propertize "a" 'face '(:foreground "#bf616a"))
 			"]"
-			(propertize "bove" 'face '(:foreground "blue"))
+			(propertize "bove" 'face '(:foreground "#81a1c1"))
 			" | ["
-			(propertize "b" 'face '(:foreground "red"))
+			(propertize "b" 'face '(:foreground "#bf616a"))
 			"]"
-			(propertize "elow" 'face '(:foreground "blue"))))))
+			(propertize "elow" 'face '(:foreground "#81a1c1"))))))
 		    (cond
 		    ((eq char ?l)
 			'left)
@@ -76,6 +76,8 @@
     (edf-display-buffer buffer alist direction)))
 
 (use-package all-the-icons-dired)
+;(use-package all-the-icons-dired
+;  :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package dired
     :straight nil
@@ -123,9 +125,9 @@
     	(dired-rainbow-define interpreted "#a3be8c" ("py" "ipynb" "rb" "pl" "t" "msql" "mysql" "pgsql" "sql" "r" "clj" "cljs" "scala" "js"))
     	(dired-rainbow-define compiled "#8fbcbb" ("asm" "cl" "lisp" "el" "c" "h" "c++" "h++" "hpp" "hxx" "m" "cc" "cs" "cp" "cpp" "go" "f" "for" "ftn" "f90" "f95" "f03" "f08" "s" "rs" "hi" "hs" "pyc" ".java"))
     	(dired-rainbow-define executable "#5e81ac" ("exe" "msi"))
-    	(dired-rainbow-define compressed "#51d88a" ("7z" "zip" "bz2" "tgz" "txz" "gz" "xz" "z" "Z" "jar" "war" "ear" "rar" "sar" "xpi" "apk" "xz" "tar"))
+    	(dired-rainbow-define compressed "#a3be8c" ("7z" "zip" "bz2" "tgz" "txz" "gz" "xz" "z" "Z" "jar" "war" "ear" "rar" "sar" "xpi" "apk" "xz" "tar"))
     	(dired-rainbow-define packaged "#d08770" ("deb" "rpm" "apk" "jad" "jar" "cab" "pak" "pk3" "vdf" "vpk" "bsp"))
-    	(dired-rainbow-define encrypted "#ffed4a" ("gpg" "pgp" "asc" "bfe" "enc" "signature" "sig" "p12" "pem"))
+    	(dired-rainbow-define encrypted "#ebcb8b" ("gpg" "pgp" "asc" "bfe" "enc" "signature" "sig" "p12" "pem"))
     	(dired-rainbow-define fonts "#81a1c1" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
     	(dired-rainbow-define partition "#bf616a" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
     	(dired-rainbow-define vc "#5e81ac" ("git" "gitignore" "gitattributes" "gitmodules"))
@@ -145,7 +147,7 @@
 	   "H" 'dired-omit-mode
 	   "l" 'dired-single-buffer
 	   "y" 'dired-ranger-copy
-	   "mv" 'dired-ranger-move
+	   "zm" 'dired-ranger-move
 	   "p" 'dired-ranger-paste))
 
 (provide 'edf-dired)

@@ -32,6 +32,12 @@
 ;; dired
 (require 'edf-dired)
 
+;; indentation
+(require 'edf-indentation)
+
+;; folding
+(require 'edf-folding)
+
 ;; which-key
 (require 'edf-which-key)
 

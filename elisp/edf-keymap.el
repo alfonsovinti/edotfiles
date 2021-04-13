@@ -4,4 +4,19 @@
 ;; evil mode take over for buffer scrolling
 (global-set-key (kbd "C-M-u") 'universal-argument)
 
+(edf-leader-key-def
+  "e"    '(dired-jump :which-key "explore")
+  "F"    '(:ignore t :which-key "font")
+  "Fi"   '((lambda ()
+             (interactive)
+             (let ((old-face-attribute (face-attribute 'default :height)))
+               (set-face-attribute 'default nil :height (+ old-face-attribute 10)))) :which-key "increase")
+  "Fd"   '((lambda ()
+             (interactive)
+             (let ((old-face-attribute (face-attribute 'default :height)))
+               (set-face-attribute 'default nil :height (- old-face-attribute 10)))) :which-key "decrease")
+  "t"    '(:ignore t :which-key "toggles")
+  "tc"   '(rainbow-mode :which-key "rainbow mode")
+  "tt"   '(counsel-load-theme :which-key "choose theme"))
+
 (provide 'edf-keymap)

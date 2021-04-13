@@ -22,9 +22,6 @@
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
-;; prevent extraneous tabs
-(setq-default indent-tabs-mode nil)
-
 ;; disable non selected window highlight
 ;(setq cursor-in-non-selected-windows nil)
 ;(setq highlight-nonselected-windows nil)
@@ -131,13 +128,13 @@
 (global-hl-line-mode t)
 
 ;; set font
-(if is-windows 
+(if is-windows
   (progn (set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 110)
-	 (set-frame-font "FiraCode Nerd Font" nil t))
+	 (set-frame-font "FiraCode Nerd Font" t t))
   (progn (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
 	 (set-frame-font "Fira Code Nerd Font" nil t)))
 
-;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/  
+;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 (defun edf-minibuffer-setup-hook ()
   (setq gc-cons-threshold gc-cons-threshold-max-val))
 
@@ -146,5 +143,7 @@
 
 (add-hook 'minibuffer-setup-hook #'edf-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'edf-minibuffer-exit-hook)
+
+(use-package rainbow-mode)
 
 (provide 'edf-core)

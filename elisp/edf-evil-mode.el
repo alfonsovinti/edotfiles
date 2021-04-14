@@ -1,4 +1,3 @@
-
 ;; run macro in the q register
 (defun edf-@q ()
   "apply macro in q register on selected lines."
@@ -17,6 +16,9 @@
   (setq evil-want-Y-yank-to-eol t)
   :bind
   (:map evil-normal-state-map
+    ; buffers
+    ("gb" . 'evil-next-buffer)
+    ("gB" . 'evil-prev-buffer)
     ; windows
     ("M-h" . 'evil-window-left)
     ("M-j" . 'evil-window-down)
@@ -31,12 +33,12 @@
     ("M-_" . 'evil-window-split)
     ; split current window vertically
     ("M-|" . 'evil-window-vsplit)
-;    :map evil-visual-state-map
-;      ("kj" . 'lib/evil-maybe-exit)
-;    :map evil-insert-state-map
-;      ("kj" . 'lib/evil-maybe-exit)
-;    :map evil-replace-state-map
-;      ("kj" . 'lib/evil-maybe-exit)
+    ;  :map evil-visual-state-map
+    ;    ("kj" . 'lib/evil-maybe-exit)
+    ;  :map evil-insert-state-map
+    ;    ("kj" . 'lib/evil-maybe-exit)
+    ;  :map evil-replace-state-map
+    ;    ("kj" . 'lib/evil-maybe-exit)
   )
   :config
   (evil-mode 1)

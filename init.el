@@ -26,6 +26,9 @@
 ;; theme
 (require 'edf-theme)
 
+;; dashboard
+(require 'edf-dashboard)
+
 ;; evil-mode
 (require 'edf-evil-mode)
 

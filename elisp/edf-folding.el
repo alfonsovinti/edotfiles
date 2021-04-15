@@ -26,9 +26,15 @@
 ;          (end-of-line)
 ;          (edf--hideshow-fold-p))))))
 
-(use-package origami
-  :hook ((yaml-mode . origami-mode)
-         (prog-mode . origami-mode)))
+(use-package hideshow
+  :straight nil ; built-in
+  :commands (hs-toggle-hiding
+             hs-hide-block
+             hs-hide-level
+             hs-show-all
+             hs-hide-all)
+  :hook ((yaml-mode . hs-minor-mode)
+        (prog-mode . hs-minor-mode)))
 
 ;(use-package vimish-fold
 ;  :requires evil

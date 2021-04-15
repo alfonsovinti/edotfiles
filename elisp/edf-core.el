@@ -78,10 +78,10 @@
 (visual-line-mode 1)
 
 ;; disable right-side fringes
-(if (fboundp 'set-fringe-style) (set-fringe-style '(8 . 0)))
+;(if (fboundp 'set-fringe-style) (set-fringe-style '(8 . 0)))
 ;; fringes appear outside the display margins
 ;(setq fringes-outside-margins t)
-;(set-fringe-mode 8)
+(set-fringe-mode 8)
 
 ;; number columns in the status bar
 ;(column-number-mode)
@@ -145,5 +145,7 @@
 (add-hook 'minibuffer-exit-hook #'edf-minibuffer-exit-hook)
 
 (use-package rainbow-mode)
+(use-package diminish)
+(use-package fringe-helper)
 
 (provide 'edf-core)

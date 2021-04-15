@@ -32,6 +32,9 @@
 ;; evil-mode
 (require 'edf-evil-mode)
 
+;; git
+(require 'edf-git)
+
 ;; dired
 (require 'edf-dired)
 

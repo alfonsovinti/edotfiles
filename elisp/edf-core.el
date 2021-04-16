@@ -74,9 +74,6 @@
 ;; diable tooltip
 ;(tooltip-mode -1)
 
-;; break long lines at word boundaries
-(visual-line-mode 1)
-
 ;; disable right-side fringes
 ;(if (fboundp 'set-fringe-style) (set-fringe-style '(8 . 0)))
 ;; fringes appear outside the display margins
@@ -100,13 +97,16 @@
 
 ;; do not kill buffers
 (defun lib-do-not-kill-buffers ()
-  "Don't let the scratch and Messages buffers die."
-  (if (member (buffer-name (current-buffer)) '("*scratch*" "*Messages*"))
+  "Don't let the dashboard, scratch and Messages buffers die."
+  (if (member (buffer-name (current-buffer)) '("*dashboard*" "*scratch*" "*Messages*"))
       (progn
         (bury-buffer)
         nil)
     t))
 (add-hook 'kill-buffer-query-functions 'lib-do-not-kill-buffers)
+
+;; break long lines at word boundaries
+(visual-line-mode 1)
 
 ;; display line number
 (setq display-line-numbers-type 'relative)

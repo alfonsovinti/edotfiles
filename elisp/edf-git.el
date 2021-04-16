@@ -39,6 +39,12 @@
       ".......XXX"
       ".......XXX"
       ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
       ".......XXX")
     (set-face-foreground 'git-gutter-fr:modified "#ebcb8b")
     (fringe-helper-define 'git-gutter-fr:modified nil
@@ -54,9 +60,21 @@
       ".......XXX"
       ".......XXX"
       ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
       ".......XXX")
     (set-face-foreground 'git-gutter-fr:deleted "#bf616a")
     (fringe-helper-define 'git-gutter-fr:deleted nil
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
       ".......XXX"
       ".......XXX"
       ".......XXX"

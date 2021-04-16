@@ -25,58 +25,58 @@
   (when (display-graphic-p)
     (require 'git-gutter-fringe)
     (setq git-gutter-fr:side 'right-fringe)
-    (set-face-foreground 'git-gutter-fr:added "LightGreen")
+    (set-face-foreground 'git-gutter-fr:added "#a3be8c")
     (fringe-helper-define 'git-gutter-fr:added nil
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX")
-    (set-face-foreground 'git-gutter-fr:modified "LightGoldenrod")
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX")
+    (set-face-foreground 'git-gutter-fr:modified "#ebcb8b")
     (fringe-helper-define 'git-gutter-fr:modified nil
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX")
-    (set-face-foreground 'git-gutter-fr:deleted "LightCoral")
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX")
+    (set-face-foreground 'git-gutter-fr:deleted "#bf616a")
     (fringe-helper-define 'git-gutter-fr:deleted nil
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"
-      ".....XXXXX"))
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"
+      ".......XXX"))
   ;; These characters are used in terminal mode
   (setq git-gutter:modified-sign " ")
   (setq git-gutter:added-sign " ")
   (setq git-gutter:deleted-sign " ")
-  (set-face-background 'git-gutter:added "LightGreen")
-  (set-face-background 'git-gutter:modified "LightGoldenrod")
-  (set-face-background 'git-gutter:deleted "LightCoral"))
+  (set-face-background 'git-gutter:added "#a3be8c")
+  (set-face-background 'git-gutter:modified "#ebcb8b")
+  (set-face-background 'git-gutter:deleted "#bf616a"))
 
 (edf-leader-key-def
   "g"   '(:ignore t :which-key "git")

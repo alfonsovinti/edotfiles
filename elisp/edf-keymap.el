@@ -4,6 +4,10 @@
 ;; evil mode take over for buffer scrolling
 (global-set-key (kbd "C-M-u") 'universal-argument)
 
+;; use ctrl + mouse scroll to change text scale
+(global-set-key (kbd "<C-whell-down>") 'text-scale-decrease)
+(global-set-key (kbd "<C-whell-up>") 'text-scale-increase)
+
 (edf-leader-key-def
   "e"    '(dired-jump :which-key "explore")
   "F"    '(:ignore t :which-key "font")

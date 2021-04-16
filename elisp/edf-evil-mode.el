@@ -1,8 +1,10 @@
-;; run macro in the q register
-(defun edf-@q ()
-  "apply macro in q register on selected lines."
-  (interactive)
-  (evil-ex-normal (region-beginning) (region-end) "@q"))
+;; TODO run macros in selected region
+;; run last registered macro
+;(defun edf-@@ ()
+;; (interactive)
+;; (evil-execute-macro 1 last-kbd-macro))
+;; (evil-ex-normal (region-beginning) (region-end) "@q"))
+;; (evil-define-key 'visual 'global "Q" #'edf-@q )
 
 ;; evil mode
 (use-package evil
@@ -33,6 +35,8 @@
     ("M-_" . 'evil-window-split)
     ; split current window vertically
     ("M-|" . 'evil-window-vsplit)
+    ;; run macro in the q register
+    ("Q" . "@p")
     ;  :map evil-visual-state-map
     ;    ("kj" . 'lib/evil-maybe-exit)
     ;  :map evil-insert-state-map
@@ -44,9 +48,7 @@
   (evil-mode 1)
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-  ;; run macro in the q register
-  (evil-define-key 'visual 'global "Q" #'edf-@q ))
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
 (use-package evil-escape
   :requires evil

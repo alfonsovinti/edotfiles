@@ -1,3 +1,13 @@
+;; ------------------------------------------------------------ ;;
+;;        __  ___      ___                                      ;;
+;;       /""\|"  \    /"  |                                     ;;
+;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
+;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
+;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
+;;   /   /  \\  \\\   /                                         ;;
+;;  (___/    \___)\__/                                          ;;
+;; ------------------------------------------------------------ ;;
+
 ;(defconst private-dir  (expand-file-name "private" user-emacs-directory))
 ;(defconst temp-dir (format "%s/cache" private-dir)
 ;  "Hostname-based elisp temp directories")

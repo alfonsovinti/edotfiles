@@ -47,6 +47,9 @@
 ;; which-key
 (require 'edf-which-key)
 
+;; shells
+(require 'edf-shells)
+
 ;; keymap
 (require 'edf-keymap)
 

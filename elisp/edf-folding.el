@@ -36,6 +36,10 @@
   :hook ((yaml-mode . hs-minor-mode)
         (prog-mode . hs-minor-mode)))
 
+(use-package hideshowvis
+  :hook ((yaml-mode . hideshowvis-minor-mode)
+        (prog-mode . hideshowvis-minor-mode)))
+
 ;(use-package vimish-fold
 ;  :requires evil
 ;  :config

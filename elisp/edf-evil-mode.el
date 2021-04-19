@@ -1,3 +1,5 @@
+(use-package undo-fu)
+
 ;; TODO run macros in selected region
 ;; run last registered macro
 ;(defun edf-@@ ()
@@ -16,6 +18,7 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
   (setq evil-want-Y-yank-to-eol t)
+  (setq evil-undo-system 'undo-fu)
   :bind
   (:map evil-normal-state-map
     ; buffers

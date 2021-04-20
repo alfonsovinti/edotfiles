@@ -121,13 +121,13 @@
 ;; display line number
 (setq display-line-numbers-type 'relative)
 ;(global-display-line-numbers-mode)
-;; Enable line numbers for some modes
+;; enable line numbers for some modes
 (dolist (mode '(text-mode-hook
                 prog-mode-hook
                 conf-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 1))))
 
-;; Override some modes which derive from the above
+;; override some modes which derive from the above
 (dolist (mode '(org-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -136,6 +136,10 @@
 
 ;; highlight current line.
 (global-hl-line-mode t)
+(dolist (mode '(eshell-mode-hook
+                shell-mode-hook
+                term-mode-hook))
+  (add-hook mode (lambda () (setq-local global-hl-line-mode nil))))
 
 ;; set font
 (if is-windows

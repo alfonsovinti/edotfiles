@@ -1,22 +1,25 @@
-(use-package term
-  :straight nil
-  :commands term
-  :config
-  (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
-  ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
-  ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
+(unless is-windows
+  (use-package eterm-256color
+    :hook (term-mode . eterm-256color-mode)))
 
-(use-package eterm-256color
-  :hook (term-mode . eterm-256color-mode))
+(unless is-windows
+  (use-package vterm
+    :commands vterm
+    :config
+    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
+    ;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
+    ;(setq shell-file-name "/bin/fish")
+    (setq vterm-max-scrollback 5000)))
 
-(use-package vterm
-  :commands vterm
-  :config
-  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-  ;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-  ;(setq shell-file-name "/bin/fish")
-  (setq vterm-max-scrollback 5000))
+(unless is-windows
+  (use-package term
+    :straight nil
+    :commands term
+    :config
+      (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
+      ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
+      ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
+      (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")))
 
 (when is-windows
   (setq explicit-shell-file-name "powershell.exe")

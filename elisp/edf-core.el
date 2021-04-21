@@ -8,10 +8,6 @@
 ;;  (___/    \___)\__/                                          ;;
 ;; ------------------------------------------------------------ ;;
 
-;(defconst private-dir  (expand-file-name "private" user-emacs-directory))
-;(defconst temp-dir (format "%s/cache" private-dir)
-;  "Hostname-based elisp temp directories")
-
 ;; UTF-8 everything!
 (set-charset-priority 'unicode)
 (setq locale-coding-system   'utf-8)   ; pretty
@@ -43,14 +39,24 @@
 (setq create-lockfiles nil)
 
 ;; keep .emacs.d clean
-(use-package no-littering)
+(use-package no-littering
+  :config
+  (setq no-littering-etc-directory
+        (expand-file-name "config/" user-emacs-directory))
+  (setq no-littering-var-directory
+        (expand-file-name "data/" user-emacs-directory))
+  (require 'recentf)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
 
 (setq auto-save-file-name-transforms
-  `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
-(setq custom-file (no-littering-expand-etc-file-name "custom.el"))
+(setq custom-file
+      (no-littering-expand-etc-file-name "custom.el"))
 
-(setq temporary-file-directory (no-littering-expand-var-file-name "tmp/"))
+(setq temporary-file-directory
+      (no-littering-expand-var-file-name "tmp/"))
 
 ;; keeping buffers automatically up-to-date
 (global-auto-revert-mode 1)
@@ -82,7 +88,7 @@
 (scroll-bar-mode -1)
 
 ;; diable tooltip
-;(tooltip-mode -1)
+(tooltip-mode -1)
 
 ;; disable right-side fringes
 ;(if (fboundp 'set-fringe-style) (set-fringe-style '(8 . 0)))

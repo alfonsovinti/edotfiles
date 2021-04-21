@@ -40,11 +40,12 @@
 
 ;; keep .emacs.d clean
 (use-package no-littering
-  :config
+  :init
   (setq no-littering-etc-directory
         (expand-file-name "config/" user-emacs-directory))
   (setq no-littering-var-directory
         (expand-file-name "data/" user-emacs-directory))
+  :config
   (require 'recentf)
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory))

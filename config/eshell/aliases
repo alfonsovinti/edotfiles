@@ -29,11 +29,11 @@ alias gaddup git add -u
 alias gaddall git add .
 alias gbranch git branch
 alias gcheckout git checkout
-alias gclone git clone
-alias gcommit git commit -m
+alias gclone git clone $*
+alias gcommit git commit -m $1
 alias gfetch git fetch
-alias gpull git pull origin
-alias gpush git push origin
+alias gpull git pull origin $1
+alias gpush git push origin $1
 alias gstatus git status
 alias gtag git tag
 alias gnewtag git tag -a

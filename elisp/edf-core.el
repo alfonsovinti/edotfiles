@@ -15,6 +15,7 @@
 (set-keyboard-coding-system  'utf-8)   ; pretty
 (set-selection-coding-system 'utf-8)   ; please
 (prefer-coding-system        'utf-8)   ; with sugar on top
+(set-default-coding-systems  'utf-8)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 ;; Let me write `y` or `n` even for important stuff
@@ -148,12 +149,49 @@
                 term-mode-hook))
   (add-hook mode (lambda () (setq-local global-hl-line-mode nil))))
 
+;; doom-emacs core
+;; https://github.com/hlissner/doom-emacs/blob/develop/core/core.el
+(setq frame-inhibit-implied-resize t)
+(setq inhibit-compacting-font-caches t)
+(setq redisplay-skip-fontification-on-input t)
+(setq sentence-end-double-space nil)
+
 ;; set font
+(set-face-attribute 'default nil
+  :font "FiraCode Nerd Font"
+  :height 110
+  :weight 'medium)
+(set-face-attribute 'variable-pitch nil
+  :font "FiraCode Nerd Font"
+  :height 120
+  :weight 'medium)
+(set-face-attribute 'fixed-pitch nil
+  :font "FiraCode Nerd Font"
+  :height 110
+  :weight 'medium)
+
+;; Makes commented text and keywords italics.
+;; This is working in emacsclient but not emacs.
+;; Your font must have an italic face available.
+(set-face-attribute 'font-lock-comment-face nil
+  :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil
+  :slant 'italic)
+
+;; Needed if using emacsclient.
+;; Otherwise, your fonts will be smaller than expected.
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-11"))
+
+;; changes certain keywords to symbols, such as lamda!
+(setq global-prettify-symbols-mode t)
+
 (if is-windows
-  (progn (set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 110)
-	 (set-frame-font "FiraCode Nerd Font" t t))
-  (progn (set-face-attribute 'default nil :font "Fira Code Nerd Font" :height 120)
-	 (set-frame-font "Fira Code Nerd Font" nil t)))
+    (set-frame-font "FiraCode Nerd Font" t t)
+	  (set-frame-font "Fira Code Nerd Font" nil t))
+
+(use-package emojify
+  :hook (erc-mode . emojify-mode)
+  :commands emojify-mode)
 
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 (defun edf-minibuffer-setup-hook ()

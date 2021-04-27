@@ -1,3 +1,15 @@
+;; ------------------------------------------------------------ ;;
+;;        __  ___      ___                                      ;;
+;;       /""\|"  \    /"  |                                     ;;
+;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
+;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
+;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
+;;   /   /  \\  \\\   /                                         ;;
+;;  (___/    \___)\__/                                          ;;
+;; ------------------------------------------------------------ ;;
+;; edf-hideshowvis.el                                           ;;
+;; ------------------------------------------------------------ ;;
+
 ;;; hideshowvis.el --- Fringe markers for regions foldable by hideshow.el -*- lexical-binding: t; -*-
 ;;
 ;; Copyright 2008-2018 Jan Rehders

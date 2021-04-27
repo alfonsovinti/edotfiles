@@ -1,3 +1,15 @@
+;; ------------------------------------------------------------ ;;
+;;        __  ___      ___                                      ;;
+;;       /""\|"  \    /"  |                                     ;;
+;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
+;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
+;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
+;;   /   /  \\  \\\   /                                         ;;
+;;  (___/    \___)\__/                                          ;;
+;; ------------------------------------------------------------ ;;
+;; init.el                                                      ;;
+;; ------------------------------------------------------------ ;;
+
 ;; display startup time
 (defun edf-display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."

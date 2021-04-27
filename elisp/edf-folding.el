@@ -1,3 +1,15 @@
+;; ------------------------------------------------------------ ;;
+;;        __  ___      ___                                      ;;
+;;       /""\|"  \    /"  |                                     ;;
+;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
+;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
+;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
+;;   /   /  \\  \\\   /                                         ;;
+;;  (___/    \___)\__/                                          ;;
+;; ------------------------------------------------------------ ;;
+;; edf-folding.el                                               ;;
+;; ------------------------------------------------------------ ;;
+
 ;;; Thanks doom-emacs, the best solution
 ;;; https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/fold
 ;; Helpers

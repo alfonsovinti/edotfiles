@@ -1,3 +1,15 @@
+;; ------------------------------------------------------------ ;;
+;;        __  ___      ___                                      ;;
+;;       /""\|"  \    /"  |                                     ;;
+;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
+;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
+;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
+;;   /   /  \\  \\\   /                                         ;;
+;;  (___/    \___)\__/                                          ;;
+;; ------------------------------------------------------------ ;;
+;; edf-git.el                                                   ;;
+;; ------------------------------------------------------------ ;;
+
 (use-package magit
   ;:bind ("C-M-;" . magit-status)
   :commands (magit-status magit-get-current-branch)

@@ -49,7 +49,7 @@
   "t"    '(:ignore t :which-key "toggles")
   "tb"   '(neotree-toggle :which-key "neotree")
   "tc"   '(rainbow-mode :which-key "rainbow mode")
-  "tt"   '(counsel-load-theme :which-key "choose theme"))
+  "tt"   '(counsel-load-theme :which-key "choose theme")
   "u"    '(:ignore t :which-key "ui")
   "uf"   '((lambda ()
              (interactive)
@@ -61,7 +61,6 @@
                (set-face-attribute 'default nil :height (- old-face-attribute 10)))) :which-key "font decrease")
 ;; "w"    '(:ignore t :which-key "window")
 ;; "x"    '(:ignore t :which-key "execute")
-
-
+  )
 
 (provide 'edf-keymap)

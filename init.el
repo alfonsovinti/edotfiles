@@ -47,6 +47,9 @@
 ;; which-key
 (require 'edf-which-key)
 
+;; eshell prompt
+(require 'edf-eshell-prompt)
+
 ;; shells
 (require 'edf-shells)
 

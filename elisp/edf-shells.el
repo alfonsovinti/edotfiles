@@ -35,82 +35,6 @@
   (setq explicit-shell-file-name "powershell.exe")
   (setq explicit-powershell.exe-args '()))
 
-;;; eshell prompt
-(defun read-file (file-path)
-  (with-temp-buffer
-    (insert-file-contents file-path)
-    (buffer-string)))
-
-(defun edf--get-current-package-version ()
-  (interactive)
-  (let ((package-json-file (concat (eshell/pwd) "/package.json")))
-    (when (file-exists-p package-json-file)
-      (let* ((package-json-contents (read-file package-json-file))
-             (package-json (ignore-errors (json-parse-string package-json-contents))))
-        (when package-json
-          (ignore-errors (gethash "version" package-json)))))))
-
-(defun edf--map-line-to-status-char (line)
-  (cond ((string-match "^?\\? " line) "?")))
-
-(defun edf--get-git-status-prompt ()
-  (let ((status-lines (cdr (process-lines "git" "status" "--porcelain" "-b"))))
-    (seq-uniq (seq-filter 'identity (mapcar 'edf--map-line-to-status-char status-lines)))))
-
-(defun edf--get-prompt-path ()
-  (let* ((current-path (eshell/pwd))
-         (git-output (shell-command-to-string "git rev-parse --show-toplevel"))
-         (has-path (not (string-match "^fatal" git-output))))
-    (if (not has-path)
-      (abbreviate-file-name current-path)
-      (string-remove-prefix (file-name-directory git-output) current-path))))
-
-;; This prompt function mostly replicates my custom zsh prompt setup
-;; that is powered by github.com/denysdovhan/spaceship-prompt.
-(defun edf--eshell-prompt ()
-  (let ((current-branch (magit-get-current-branch))
-        (package-version (edf--get-current-package-version)))
-    (concat
-      "\n"
-      ;(propertize (system-name) 'face `(:foreground "#5e81ac"))
-      ;(all-the-icons-wicon "tornado")
-      ;" "
-      (propertize (edf--get-prompt-path) 'face `(:foreground "#88c0d0"))
-      (when current-branch
-        (concat
-          " "
-          (propertize (all-the-icons-faicon "angle-right")
-            'face `(:family ,(all-the-icons-faicon-family) :height 1.2 :foreground "#eceff4")
-            'display '(raise -0.1))
-          " "
-          (propertize (all-the-icons-octicon "git-branch")
-            'face `(:family ,(all-the-icons-octicon-family) :height 1.2 :foreground "#b48ead")
-            'display '(raise -0.1))
-          " "
-          (propertize current-branch 'face `(:foreground "#b48ead"))))
-      (when package-version
-        (concat
-          " "
-          (propertize (all-the-icons-faicon "angle-right")
-            'face `(:family ,(all-the-icons-faicon-family) :height 1.2 :foreground "#eceff4")
-            'display '(raise -0.1))
-          " "
-          (propertize (all-the-icons-alltheicon "nodejs")
-            'face `(:family ,(all-the-icons-alltheicon-family) :height 1.2 :foreground "#a3be8c")
-            'display '(raise -0.1))
-          " "
-          (propertize package-version 'face `(:foreground "#a3be8c"))))
-      " "
-      (propertize (all-the-icons-faicon "angle-right")
-        'face `(:family ,(all-the-icons-faicon-family) :height 1.2 :foreground "#eceff4")
-        'display '(raise -0.1))
-      " "
-      (propertize (format-time-string "%I:%M:%S %p") 'face `(:foreground "#4c566a"))
-      (if (= (user-uid) 0)
-        (propertize "\n#" 'face `(:foreground "#bf616a"))
-        (propertize "\n$" 'face `(:foreground "#a3be8c")))
-      (propertize " " 'face `(:foreground "#eceff4")))))
-
 (defun edf--eshell-init ()
   (require 'evil-collection-eshell)
   (evil-collection-eshell-setup)
@@ -154,7 +78,7 @@
   (evil-normalize-keymaps)
 
   (setq eshell-prompt-function 'edf--eshell-prompt
-        eshell-prompt-regexp "$ "
+        eshell-prompt-regexp edf--eshell-prompt-regexp
         eshell-aliases-file (no-littering-expand-etc-file-name "eshell/aliases")
         eshell-history-size 5000
         eshell-buffer-maximum-lines 5000

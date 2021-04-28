@@ -1,14 +1,12 @@
-;; ------------------------------------------------------------ ;;
-;;        __  ___      ___                                      ;;
-;;       /""\|"  \    /"  |                                     ;;
-;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
-;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
-;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
-;;   /   /  \\  \\\   /                                         ;;
-;;  (___/    \___)\__/                                          ;;
-;; ------------------------------------------------------------ ;;
-;; edf-theme.el                                                 ;;
-;; ------------------------------------------------------------ ;;
+;;       __  ___      ___
+;;      /""\|"  \    /"  |
+;;     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+;;    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+;;   //  __'  \\.    //     https://github.com/alfonsovinti
+;;  /   /  \\  \\\   /
+;; (___/    \___)\__/
+;;
+;; edf-theme.el
 
 ;; You must run (all-the-icons-install-fonts) one time after
 ;; installing this package!

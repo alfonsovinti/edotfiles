@@ -1,14 +1,12 @@
-;; ------------------------------------------------------------ ;;
-;;        __  ___      ___                                      ;;
-;;       /""\|"  \    /"  |                                     ;;
-;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
-;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
-;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
-;;   /   /  \\  \\\   /                                         ;;
-;;  (___/    \___)\__/                                          ;;
-;; ------------------------------------------------------------ ;;
-;; early-init.el - Emacs 27+ pre-initialisation config          ;;
-;; ------------------------------------------------------------ ;;
+;;       __  ___      ___
+;;      /""\|"  \    /"  |
+;;     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+;;    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+;;   //  __'  \\.    //     https://github.com/alfonsovinti
+;;  /   /  \\  \\\   /
+;; (___/    \___)\__/
+;;
+;; early-init.el - Emacs 27+ pre-initialisation config
 
 ;; startup optimizations
 (defconst gc-cons-threshold-min-val gc-cons-threshold)

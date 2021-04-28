@@ -1,14 +1,12 @@
-;; ------------------------------------------------------------ ;;
-;;        __  ___      ___                                      ;;
-;;       /""\|"  \    /"  |                                     ;;
-;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
-;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
-;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
-;;   /   /  \\  \\\   /                                         ;;
-;;  (___/    \___)\__/                                          ;;
-;; ------------------------------------------------------------ ;;
-;; edf-dired.el                                                 ;;
-;; ------------------------------------------------------------ ;;
+;;       __  ___      ___
+;;      /""\|"  \    /"  |
+;;     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+;;    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+;;   //  __'  \\.    //     https://github.com/alfonsovinti
+;;  /   /  \\  \\\   /
+;; (___/    \___)\__/
+;;
+;; edf-dired.el
 
 ;;;
 ;; TODO: add key map to open on "v" o "s" split window

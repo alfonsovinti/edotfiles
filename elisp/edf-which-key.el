@@ -1,14 +1,12 @@
-;; ------------------------------------------------------------ ;;
-;;        __  ___      ___                                      ;;
-;;       /""\|"  \    /"  |                                     ;;
-;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
-;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
-;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
-;;   /   /  \\  \\\   /                                         ;;
-;;  (___/    \___)\__/                                          ;;
-;; ------------------------------------------------------------ ;;
-;; edf-which-key.el                                                 ;;
-;; ------------------------------------------------------------ ;;
+;;       __  ___      ___
+;;      /""\|"  \    /"  |
+;;     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+;;    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+;;   //  __'  \\.    //     https://github.com/alfonsovinti
+;;  /   /  \\  \\\   /
+;; (___/    \___)\__/
+;;
+;; edf-which-key.el
 
 (use-package which-key
   :init (which-key-mode)

@@ -1,14 +1,12 @@
-;; ------------------------------------------------------------ ;;
-;;        __  ___      ___                                      ;;
-;;       /""\|"  \    /"  |                                     ;;
-;;      /    \\   \  //  /     Alfonso Vinti (alfonsovinti)     ;;
-;;     /' /\  \\\  \/. ./      https://www.alfonsovinti.it      ;;
-;;    //  __'  \\.    //       https://github.com/alfonsovinti  ;;
-;;   /   /  \\  \\\   /                                         ;;
-;;  (___/    \___)\__/                                          ;;
-;; ------------------------------------------------------------ ;;
-;; edf-shells.el                                                ;;
-;; ------------------------------------------------------------ ;;
+;;       __  ___      ___
+;;      /""\|"  \    /"  |
+;;     /    \\   \  //  /   Alfonso Vinti (alfonsovinti)
+;;    /' /\  \\\  \/. ./    https://www.alfonsovinti.it
+;;   //  __'  \\.    //     https://github.com/alfonsovinti
+;;  /   /  \\  \\\   /
+;; (___/    \___)\__/
+;;
+;; edf-shells.el
 
 (unless is-windows
   (use-package eterm-256color

@@ -29,40 +29,32 @@
 
 ;; package
 (require 'edf-package)
-
 ;; core settings
 (require 'edf-core)
-
 ;; theme
 (require 'edf-theme)
-
 ;; dashboard
 (require 'edf-dashboard)
-
 ;; evil-mode
 (require 'edf-evil-mode)
-
 ;; git
 (require 'edf-git)
-
 ;; dired
 (require 'edf-dired)
-
 ;; indentation
 (require 'edf-indentation)
-
 ;; folding
 (require 'edf-folding)
-
 ;; which-key
 (require 'edf-which-key)
-
+;; ivy
+(require 'edf-ivy)
 ;; eshell prompt
 (require 'edf-eshell-prompt)
-
 ;; shells
 (require 'edf-shells)
-
+;; langauges
+(require 'edf-langauges)
 ;; keymap
 (require 'edf-keymap)
 

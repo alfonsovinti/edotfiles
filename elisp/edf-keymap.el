@@ -22,10 +22,13 @@
 ;; "*"    Search for symbol in project
 ;; "."    Find file
 ;; "/"    Seach in project
+;; ";"    Comment operator
 ;;        Switc to last buffer
   "S"    '(save-buffer :which-key "Save buffer")
 ;; "b"    '(:ignore t :which-key "buffer")
-;; "c"    '(:ignore t :which-key "code")
+  "c"    '(:ignore t :which-key "code")
+  "cc"   '(evilnc-comment-or-uncomment-lines :which-key "toggle comment")
+  "cC"   '(evilnc-copy-and-comment-lines :which-key "copy and comment")
   "e"    '(:ignore t :which-key "explore")
   "eb"   '(ibuffer :which-key "buffer")
   "ef"   '(dired-jump :which-key "file")
@@ -47,7 +50,6 @@
   "t"    '(:ignore t :which-key "toggles")
   "tb"   '(neotree-toggle :which-key "neotree")
   "tc"   '(rainbow-mode :which-key "rainbow mode")
-  "tt"   '(counsel-load-theme :which-key "choose theme")
   "u"    '(:ignore t :which-key "ui")
   "uf"   '((lambda ()
              (interactive)
@@ -57,6 +59,7 @@
              (interactive)
              (let ((old-face-attribute (face-attribute 'default :height)))
                (set-face-attribute 'default nil :height (- old-face-attribute 10)))) :which-key "font decrease")
+  "ut"   '(counsel-load-theme :which-key "choose theme")
 ;; "w"    '(:ignore t :which-key "window")
 ;; "x"    '(:ignore t :which-key "execute")
   )

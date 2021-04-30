@@ -29,6 +29,8 @@
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-wrap t)
   (setq enable-recursive-minibuffers t)
+  ;; removes ^ in things like counsel-M-x and other ivy/counsel prompts.
+  (setq ivy-initial-inputs-alist nil)
   (evil-collection-ivy-setup)
   (ivy-mode 1))
 

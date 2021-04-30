@@ -67,6 +67,7 @@
     ("M-C-k" . 'evil-window-increase-height)
     ("M-C-l" . 'evil-window-increase-width)
     ("M-=" . 'balance-windows)
+    ("M-f" . 'edf-toggle-window-zoom)
     ;; run macro in the q register
     ;;("Q" . "@p") FIX THIS
     :map evil-visual-state-map

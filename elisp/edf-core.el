@@ -207,4 +207,32 @@
 (use-package diminish)
 (use-package fringe-helper)
 
+;; zoom
+(use-package zoom
+  :config
+  (setq zoom-size '(0.85 . 0.85)))
+
+(defvar edf-toggle-window-zoom--selected-window nil
+  "Variable to store the name of selected window before zoom.")
+
+(defvar edf-toggle-window-zoom--window-configuration nil
+  "Variable to store the window configuration before zoom.")
+
+(defun edf-toggle-window-zoom ()
+  "Toggle window zoom."
+  (interactive)
+  (if edf-toggle-window-zoom--window-configuration
+    (if (equal edf-toggle-window-zoom--selected-window (selected-window))
+      (progn
+        (set-window-configuration edf-toggle-window-zoom--window-configuration)
+        (setq edf-toggle-window-zoom--selected-window nil)
+        (setq edf-toggle-window-zoom--window-configuration nil))
+      (progn
+        (setq edf-toggle-window-zoom--selected-window (selected-window))
+        (zoom)))
+    (progn
+      (setq edf-toggle-window-zoom--selected-window (selected-window))
+      (setq edf-toggle-window-zoom--window-configuration (current-window-configuration))
+      (zoom))))
+
 (provide 'edf-core)

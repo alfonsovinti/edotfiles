@@ -20,8 +20,8 @@
 
 (edf-leader-key-def
 ;; "*"    Search for symbol in project
-;; "."    Find file
-;; "/"    Seach in project
+  "."    '(counsel-find-file :which-key "Find file")
+  "/"    '(swiper :which-key "Seach in project")
 ;; ";"    Comment operator
 ;;        Switc to last buffer
   "S"    '(save-buffer :which-key "Save buffer")

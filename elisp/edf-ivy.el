@@ -12,6 +12,7 @@
   :defer 0.1
   :diminish
   :bind (("C-c C-r" . ivy-resume)
+          ("C-x B" . ivy-switch-buffer-other-window)
          :map ivy-minibuffer-map
          ("C-l" . ivy-alt-done)
          ("C-j" . ivy-next-line)

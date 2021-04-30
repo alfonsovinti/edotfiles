@@ -11,7 +11,8 @@
 (use-package ivy
   :defer 0.1
   :diminish
-  :bind (:map ivy-minibuffer-map
+  :bind (("C-c C-r" . ivy-resume)
+         :map ivy-minibuffer-map
          ("C-l" . ivy-alt-done)
          ("C-j" . ivy-next-line)
          ("C-k" . ivy-previous-line)

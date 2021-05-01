@@ -85,24 +85,30 @@
 			(signal 'quit `(,msg)))))))))
     (edf-display-buffer buffer alist direction)))
 
-(use-package all-the-icons-dired)
-;(use-package all-the-icons-dired
-;  :hook (dired-mode . all-the-icons-dired-mode))
+(unless is-windows
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode)))
 
 (use-package dired
     :straight nil
     :defer 1
     :commands (dired dired-jump)
     :config
-    (setq dired-listing-switches "-alh"
-        dired-hide-details-hide-symlink-targets nil
-        ls-lisp-verbosity nil ; hide the link count, user, and group columns - default is '(links uid gid)
-        ls-lisp-dirs-first t ; only windows support ?
-        ; use ISO dates (the first is for recent dates, second for old dates)
-        ls-lisp-format-time-list '("%Y-%m-%d %H:%M" "%Y-%m-%d %H:%M")
-        ls-lisp-use-localized-time-format t
-	    ;dired-omit-files "^\\.[^.].*"
-        dired-omit-verbose nil)
+    (if is-windows
+      (setq dired-listing-switches "-alh"
+          dired-hide-details-hide-symlink-targets nil
+          ls-lisp-verbosity nil ; hide the link count, user, and group columns - default is '(links uid gid)
+          ls-lisp-dirs-first t ; only windows support ?
+          ; use ISO dates (the first is for recent dates, second for old dates)
+          ls-lisp-format-time-list '("%Y-%m-%d %H:%M" "%Y-%m-%d %H:%M")
+          ls-lisp-use-localized-time-format t
+          dired-omit-verbose nil)
+      (setq dired-listing-switches "-agho --group-directories-first"
+          dired-hide-details-hide-symlink-targets nil
+          ls-lisp-verbosity nil ; hide the link count, user, and group columns - default is '(links uid gid)
+          ls-lisp-format-time-list '("%Y-%m-%d %H:%M" "%Y-%m-%d %H:%M")
+          ls-lisp-use-localized-time-format t
+          dired-omit-verbose nil))
 
     (autoload 'dired-omit-mode "dired-x")
 

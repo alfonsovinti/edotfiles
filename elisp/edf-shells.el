@@ -16,10 +16,12 @@
   (use-package vterm
     :commands vterm
     :config
-    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
-    ;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
-    ;(setq shell-file-name "/bin/fish")
-    (setq vterm-max-scrollback 5000)))
+    (setq vterm-shell "fish")
+    (setq vterm-max-scrollback 5000)
+    (add-hook 'vterm-mode-hook
+          (lambda ()
+            (set (make-local-variable 'buffer-face-mode-face) 'fixed-pitch)
+                 (buffer-face-mode t)))))
 
 (unless is-windows
   (use-package term

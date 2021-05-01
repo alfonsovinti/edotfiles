@@ -151,10 +151,9 @@
 
 ;; doom-emacs core
 ;; https://github.com/hlissner/doom-emacs/blob/develop/core/core.el
-(setq frame-inhibit-implied-resize t)
-(setq inhibit-compacting-font-caches t)
-(setq redisplay-skip-fontification-on-input t)
-(setq sentence-end-double-space nil)
+;; (setq frame-inhibit-implied-resize t)
+;; (setq inhibit-compacting-font-caches t)
+;; (setq redisplay-skip-fontification-on-input t)
 
 ;; set font
 (set-face-attribute 'default nil
@@ -180,14 +179,14 @@
 
 ;; Needed if using emacsclient.
 ;; Otherwise, your fonts will be smaller than expected.
-(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-11"))
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13"))
 
 ;; changes certain keywords to symbols, such as lamda!
 (setq global-prettify-symbols-mode t)
 
 (if is-windows
     (set-frame-font "FiraCode Nerd Font" t t)
-	  (set-frame-font "Fira Code Nerd Font" nil t))
+	  (set-frame-font "FiraCode Nerd Font" nil t))
 
 (use-package emojify
   :hook (erc-mode . emojify-mode)
@@ -234,5 +233,7 @@
       (setq edf-toggle-window-zoom--selected-window (selected-window))
       (setq edf-toggle-window-zoom--window-configuration (current-window-configuration))
       (zoom))))
+
+(server-start)
 
 (provide 'edf-core)

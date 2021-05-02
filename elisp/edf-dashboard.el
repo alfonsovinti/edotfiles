@@ -36,4 +36,7 @@
             (lambda (&rest _) (browse-url "https://github.com/alfonsovinti/edotfiles"))))))
   (setq dashboard-set-footer nil))
 
+;; dashboard in emacsclient
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+
 (provide 'edf-dashboard)

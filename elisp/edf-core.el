@@ -234,6 +234,4 @@
       (setq edf-toggle-window-zoom--window-configuration (current-window-configuration))
       (zoom))))
 
-(server-start)
-
 (provide 'edf-core)

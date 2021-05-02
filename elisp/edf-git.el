@@ -99,12 +99,12 @@
       ".......XXX"
       ".......XXX"))
   ;; These characters are used in terminal mode
-  (setq git-gutter:modified-sign " ")
-  (setq git-gutter:added-sign " ")
-  (setq git-gutter:deleted-sign " ")
-  (set-face-background 'git-gutter:added "#a3be8c")
-  (set-face-background 'git-gutter:modified "#ebcb8b")
-  (set-face-background 'git-gutter:deleted "#bf616a"))
+  (setq git-gutter:modified-sign "⏽")
+  (setq git-gutter:added-sign "⏽")
+  (setq git-gutter:deleted-sign "⏽")
+  (set-face-foreground 'git-gutter:added "#a3be8c")
+  (set-face-foreground 'git-gutter:modified "#ebcb8b")
+  (set-face-foreground 'git-gutter:deleted "#bf616a"))
 
 (edf-leader-key-def
   "g"   '(:ignore t :which-key "git")

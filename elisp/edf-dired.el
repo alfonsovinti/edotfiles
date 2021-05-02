@@ -40,7 +40,7 @@
 	window))
 
 (defun dired-display-buffer (&optional direction alist)
-    "Display a dired-mode buffer or a file underneath point in a dired-mode buffer."
+   "Display a dired-mode buffer or a file underneath point in a dired-mode buffer."
     (interactive)
     (let* ((file-or-dir (or (and (eq major-mode 'dired-mode) (dired-get-file-for-visit))
 		(read-directory-name "Directory:  ")))
@@ -110,11 +110,10 @@
           ls-lisp-use-localized-time-format t
           dired-omit-verbose nil))
 
-    (autoload 'dired-omit-mode "dired-x")
-
     (add-hook 'dired-load-hook
     	(lambda ()
     	    (interactive)
+          (load "dired-x")
     	    (dired-collapse)))
 
     (add-hook 'dired-mode-hook
@@ -125,9 +124,22 @@
     	    ;(all-the-icons-dired-mode 1) ; FIXME non funzione su windows
     	    (hl-line-mode 1)))
 
+    (use-package dired-hacks
+	   :defer t)
+
+    (use-package dired-single
+	   :defer t)
+
+    (use-package dired-ranger
+	   :defer t)
+
+    (use-package dired-collapse
+	   :defer t)
+
     (use-package dired-rainbow
     	:defer 2
     	:config
+      (progn
     	(dired-rainbow-define-chmod directory "#81a1c1" "d.*")
     	(dired-rainbow-define html "#b48ead" ("css" "less" "sass" "scss" "htm" "html" "jhtm" "mht" "eml" "mustache" "xhtml"))
     	(dired-rainbow-define xml "#ebcb8b" ("xml" "xsd" "xsl" "xslt" "wsdl" "bib" "json" "msg" "pgn" "rss" "yaml" "yml" "rdata"))
@@ -147,16 +159,12 @@
     	(dired-rainbow-define fonts "#81a1c1" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
     	(dired-rainbow-define partition "#bf616a" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
     	(dired-rainbow-define vc "#5e81ac" ("git" "gitignore" "gitattributes" "gitmodules"))
-    	(dired-rainbow-define-chmod executable-unix "#a3be8c" "-.*x.*"))
+    	(dired-rainbow-define-chmod executable-unix "#a3be8c" "-.*x.*")))
 
-    (use-package dired-single
-	   :defer t)
-
-    (use-package dired-ranger
-	   :defer t)
-
-    (use-package dired-collapse
-	   :defer t)
+    (use-package dired-rainbow-listing
+      :straight (:type git :host github :repo "mnewt/dired-rainbow-listing")
+      :hook
+      (dired-mode-hook . dired-rainbow-listing-mode))
 
     (evil-collection-define-key 'normal 'dired-mode-map
 	   "h" 'dired-single-up-directory

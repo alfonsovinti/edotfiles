@@ -85,10 +85,6 @@
 			(signal 'quit `(,msg)))))))))
     (edf-display-buffer buffer alist direction)))
 
-(unless is-windows
-  (use-package all-the-icons-dired
-    :hook (dired-mode . all-the-icons-dired-mode)))
-
 (use-package dired
     :straight nil
     :defer 1
@@ -110,61 +106,20 @@
           ls-lisp-use-localized-time-format t
           dired-omit-verbose nil))
 
+    (autoload 'dired-omit-mode "dired-x")
+
     (add-hook 'dired-load-hook
     	(lambda ()
     	    (interactive)
-          (load "dired-x")
-    	    (dired-collapse)))
+          (dired-collapse)))
 
     (add-hook 'dired-mode-hook
     	(lambda ()
     	    (interactive)
     	    (dired-omit-mode 1)
-    	    ;(dired-hide-details-mode 1)
-    	    ;(all-the-icons-dired-mode 1) ; FIXME non funzione su windows
+    	    ;; (dired-hide-details-mode 1)
+    	    ;; (all-the-icons-dired-mode 1) ; FIXME non funzione su windows
     	    (hl-line-mode 1)))
-
-    (use-package dired-hacks
-	   :defer t)
-
-    (use-package dired-single
-	   :defer t)
-
-    (use-package dired-ranger
-	   :defer t)
-
-    (use-package dired-collapse
-	   :defer t)
-
-    (use-package dired-rainbow
-    	:defer 2
-    	:config
-      (progn
-    	(dired-rainbow-define-chmod directory "#81a1c1" "d.*")
-    	(dired-rainbow-define html "#b48ead" ("css" "less" "sass" "scss" "htm" "html" "jhtm" "mht" "eml" "mustache" "xhtml"))
-    	(dired-rainbow-define xml "#ebcb8b" ("xml" "xsd" "xsl" "xslt" "wsdl" "bib" "json" "msg" "pgn" "rss" "yaml" "yml" "rdata"))
-    	(dired-rainbow-define document "#b48ead" ("docm" "doc" "docx" "odb" "odt" "pdb" "pdf" "ps" "rtf" "djvu" "epub" "odp" "ppt" "pptx"))
-    	(dired-rainbow-define markdown "#ebcb8b" ("org" "etx" "info" "markdown" "md" "mkd" "nfo" "pod" "rst" "tex" "textfile" "txt"))
-    	(dired-rainbow-define database "#b48ead" ("xlsx" "xls" "csv" "accdb" "db" "mdb" "sqlite" "nc"))
-    	(dired-rainbow-define media "#d08770" ("mp3" "mp4" "mkv" "MP3" "MP4" "avi" "mpeg" "mpg" "flv" "ogg" "mov" "mid" "midi" "wav" "aiff" "flac"))
-    	(dired-rainbow-define image "#88c0d0" ("tiff" "tif" "cdr" "gif" "ico" "jpeg" "jpg" "png" "psd" "eps" "svg"))
-    	(dired-rainbow-define log "#8fbcbb" ("log"))
-    	(dired-rainbow-define shell "#d08770" ("awk" "bash" "bat" "sed" "sh" "zsh" "vim"))
-    	(dired-rainbow-define interpreted "#a3be8c" ("py" "ipynb" "rb" "pl" "t" "msql" "mysql" "pgsql" "sql" "r" "clj" "cljs" "scala" "js"))
-    	(dired-rainbow-define compiled "#8fbcbb" ("asm" "cl" "lisp" "el" "c" "h" "c++" "h++" "hpp" "hxx" "m" "cc" "cs" "cp" "cpp" "go" "f" "for" "ftn" "f90" "f95" "f03" "f08" "s" "rs" "hi" "hs" "pyc" ".java"))
-    	(dired-rainbow-define executable "#5e81ac" ("exe" "msi"))
-    	(dired-rainbow-define compressed "#a3be8c" ("7z" "zip" "bz2" "tgz" "txz" "gz" "xz" "z" "Z" "jar" "war" "ear" "rar" "sar" "xpi" "apk" "xz" "tar"))
-    	(dired-rainbow-define packaged "#d08770" ("deb" "rpm" "apk" "jad" "jar" "cab" "pak" "pk3" "vdf" "vpk" "bsp"))
-    	(dired-rainbow-define encrypted "#ebcb8b" ("gpg" "pgp" "asc" "bfe" "enc" "signature" "sig" "p12" "pem"))
-    	(dired-rainbow-define fonts "#81a1c1" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
-    	(dired-rainbow-define partition "#bf616a" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
-    	(dired-rainbow-define vc "#5e81ac" ("git" "gitignore" "gitattributes" "gitmodules"))
-    	(dired-rainbow-define-chmod executable-unix "#a3be8c" "-.*x.*")))
-
-    (use-package dired-rainbow-listing
-      :straight (:type git :host github :repo "mnewt/dired-rainbow-listing")
-      :hook
-      (dired-mode-hook . dired-rainbow-listing-mode))
 
     (evil-collection-define-key 'normal 'dired-mode-map
 	   "h" 'dired-single-up-directory
@@ -172,6 +127,72 @@
 	   "l" 'dired-single-buffer
 	   "y" 'dired-ranger-copy
 	   "zm" 'dired-ranger-move
-	   "p" 'dired-ranger-paste))
+	   "p" 'dired-ranger-paste
+     ;; TODO add ivy menu for dired common commands
+     (kbd "SPC") nil))
+
+(unless is-windows
+  (use-package all-the-icons-dired
+    :after dired
+    :defer t
+    :hook (dired-mode . all-the-icons-dired-mode)))
+
+(use-package dired-hacks-utils
+  :after dired
+  :defer t)
+
+(use-package dired-hacks
+  :after dired
+  :defer t)
+
+(use-package dired-single
+  :after dired
+  :defer t)
+
+(use-package dired-ranger
+  :after dired
+  :defer t)
+
+(use-package dired-collapse
+  :after dired
+  :defer t)
+
+;; TODO fix this
+(use-package dired-rainbow
+  :after dired
+  :defer 2
+  :config
+  (progn
+  (dired-rainbow-define-chmod directory "#81a1c1" "d.*")
+  (dired-rainbow-define html "#b48ead" ("css" "less" "sass" "scss" "htm" "html" "jhtm" "mht" "eml" "mustache" "xhtml"))
+  (dired-rainbow-define xml "#ebcb8b" ("xml" "xsd" "xsl" "xslt" "wsdl" "bib" "json" "msg" "pgn" "rss" "yaml" "yml" "rdata"))
+  (dired-rainbow-define document "#b48ead" ("docm" "doc" "docx" "odb" "odt" "pdb" "pdf" "ps" "rtf" "djvu" "epub" "odp" "ppt" "pptx"))
+  (dired-rainbow-define markdown "#ebcb8b" ("org" "etx" "info" "markdown" "md" "mkd" "nfo" "pod" "rst" "tex" "textfile" "txt"))
+  (dired-rainbow-define database "#b48ead" ("xlsx" "xls" "csv" "accdb" "db" "mdb" "sqlite" "nc"))
+  (dired-rainbow-define media "#d08770" ("mp3" "mp4" "mkv" "MP3" "MP4" "avi" "mpeg" "mpg" "flv" "ogg" "mov" "mid" "midi" "wav" "aiff" "flac"))
+  (dired-rainbow-define image "#88c0d0" ("tiff" "tif" "cdr" "gif" "ico" "jpeg" "jpg" "png" "psd" "eps" "svg"))
+  (dired-rainbow-define log "#8fbcbb" ("log"))
+  (dired-rainbow-define shell "#d08770" ("awk" "bash" "bat" "sed" "sh" "zsh" "vim"))
+  (dired-rainbow-define interpreted "#a3be8c" ("py" "ipynb" "rb" "pl" "t" "msql" "mysql" "pgsql" "sql" "r" "clj" "cljs" "scala" "js"))
+  (dired-rainbow-define compiled "#8fbcbb" ("asm" "cl" "lisp" "el" "c" "h" "c++" "h++" "hpp" "hxx" "m" "cc" "cs" "cp" "cpp" "go" "f" "for" "ftn" "f90" "f95" "f03" "f08" "s" "rs" "hi" "hs" "pyc" ".java"))
+  (dired-rainbow-define executable "#5e81ac" ("exe" "msi"))
+  (dired-rainbow-define compressed "#a3be8c" ("7z" "zip" "bz2" "tgz" "txz" "gz" "xz" "z" "Z" "jar" "war" "ear" "rar" "sar" "xpi" "apk" "xz" "tar"))
+  (dired-rainbow-define packaged "#d08770" ("deb" "rpm" "apk" "jad" "jar" "cab" "pak" "pk3" "vdf" "vpk" "bsp"))
+  (dired-rainbow-define encrypted "#ebcb8b" ("gpg" "pgp" "asc" "bfe" "enc" "signature" "sig" "p12" "pem"))
+  (dired-rainbow-define fonts "#81a1c1" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
+  (dired-rainbow-define partition "#bf616a" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
+  (dired-rainbow-define vc "#5e81ac" ("git" "gitignore" "gitattributes" "gitmodules"))
+  (dired-rainbow-define-chmod executable-unix "#a3be8c" "-.*x.*")))
+
+;; (use-package dired-rainbow-listing
+;;   :straight (:type git :host github :repo "mnewt/dired-rainbow-listing")
+;;   :after dired
+;;   :defer t
+;;   :hook (dired-mode . dired-rainbow-listing-mode))
+;ranger-mode-load-hook
+
+(use-package ranger
+  :after dired
+  :defer t)
 
 (provide 'edf-dired)

@@ -60,6 +60,9 @@
 (setq temporary-file-directory
       (no-littering-expand-var-file-name "tmp/"))
 
+;; Revert Dired and other buffers
+(setq global-auto-revert-non-file-buffers t)
+
 ;; keeping buffers automatically up-to-date
 (global-auto-revert-mode 1)
 
@@ -155,7 +158,17 @@
 ;; (setq inhibit-compacting-font-caches t)
 ;; (setq redisplay-skip-fontification-on-input t)
 
+;; Needed if using emacsclient.
+;; Otherwise, your fonts will be smaller than expected.
+(if is-windows
+    (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-11"))
+	  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13")))
+
+;(add-to-list 'default-frame-alist '(font . "Fira Code Symbol"))
+
 ;; set font
+(set-frame-font "FiraCode Nerd Font" nil t)
+
 (set-face-attribute 'default nil
   :font "FiraCode Nerd Font"
   :height 110
@@ -177,17 +190,10 @@
 (set-face-attribute 'font-lock-keyword-face nil
   :slant 'italic)
 
-;; Needed if using emacsclient.
-;; Otherwise, your fonts will be smaller than expected.
-(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13"))
-
 ;; changes certain keywords to symbols, such as lamda!
 (setq global-prettify-symbols-mode t)
 
-(if is-windows
-    (set-frame-font "FiraCode Nerd Font" t t)
-	  (set-frame-font "FiraCode Nerd Font" nil t))
-
+;; add emoji
 (use-package emojify
   :hook (erc-mode . emojify-mode)
   :commands emojify-mode)

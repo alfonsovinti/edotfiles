@@ -30,6 +30,7 @@
   "cc"   '(evilnc-comment-or-uncomment-lines :which-key "toggle comment")
   "cC"   '(evilnc-copy-and-comment-lines :which-key "copy and comment")
   "e"    '(:ignore t :which-key "explore")
+  "ee"   '(ranger :which-key "ranger")
   "eb"   '(ibuffer :which-key "buffer")
   "ef"   '(dired-jump :which-key "file")
 ;; "f"    '(:ignore t :which-key "file")

@@ -30,7 +30,6 @@
   (evil-normal-state)
   (evil-visual-restore))
 
-
 ;; evil mode
 (use-package evil
   :init

@@ -1,5 +1,8 @@
 # Emacs dotfiles
 
+# TODO
+Ebable fira code ligatures https://www.rockyourcode.com/fira-code-font-ligatures-in-emacs/spacemacs-on-arch-linux/
+
 # Key bindings
 
 ## Common

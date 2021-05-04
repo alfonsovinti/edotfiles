@@ -51,6 +51,7 @@
   "t"    '(:ignore t :which-key "toggles")
   "tb"   '(neotree-toggle :which-key "neotree")
   "tc"   '(rainbow-mode :which-key "rainbow mode")
+  "tl"   '(global-ligature-mode :which-key "ligature mode")
   "tz"   '(zoom-mode :which-key "zoom mode")
   "u"    '(:ignore t :which-key "ui")
   "uf"   '((lambda ()

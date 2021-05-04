@@ -15,6 +15,7 @@
 (set-keyboard-coding-system  'utf-8)   ; pretty
 (set-selection-coding-system 'utf-8)   ; please
 (prefer-coding-system        'utf-8)   ; with sugar on top
+;; (set-language-environment "UTF-8")
 (set-default-coding-systems  'utf-8)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
@@ -155,7 +156,7 @@
 ;; doom-emacs core
 ;; https://github.com/hlissner/doom-emacs/blob/develop/core/core.el
 ;; (setq frame-inhibit-implied-resize t)
-;; (setq inhibit-compacting-font-caches t)
+(setq inhibit-compacting-font-caches t)
 ;; (setq redisplay-skip-fontification-on-input t)
 
 ;; Needed if using emacsclient.
@@ -163,8 +164,6 @@
 (if is-windows
     (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-11"))
 	  (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-13")))
-
-;(add-to-list 'default-frame-alist '(font . "Fira Code Symbol"))
 
 ;; set font
 (set-frame-font "FiraCode Nerd Font" nil t)
@@ -181,6 +180,30 @@
   :font "FiraCode Nerd Font"
   :height 110
   :weight 'medium)
+
+(use-package ligature
+  :straight (:type git :host github :repo "mickeynp/ligature.el")
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+                                       ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+                                       "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+                                       "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+                                       "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+                                       "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
+                                       "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+                                       "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+                                       "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+                                       "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  ;; (global-ligature-mode nil)
+  )
 
 ;; Makes commented text and keywords italics.
 ;; This is working in emacsclient but not emacs.

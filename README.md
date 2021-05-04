@@ -1,7 +1,8 @@
 # Emacs dotfiles
 
 # TODO
-Ebable fira code ligatures https://www.rockyourcode.com/fira-code-font-ligatures-in-emacs/spacemacs-on-arch-linux/
+Enabel italic https://emacs.stackexchange.com/questions/61607/firacode-font-not-rendering-italics
+Fix icon font
 
 # Key bindings
 

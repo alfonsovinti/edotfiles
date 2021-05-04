@@ -11,7 +11,14 @@
 ;; You must run (all-the-icons-install-fonts) one time after
 ;; installing this package!
 (use-package all-the-icons)
+;; (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+;; (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+;; (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+;; (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+;; (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+;; (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
 
+;; sidebar
 (use-package neotree)
 
 ;(use-package nord-theme

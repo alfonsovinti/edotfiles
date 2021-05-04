@@ -18,6 +18,12 @@
 ;; (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
 ;; (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append)
 
+;; FIX nf-mdi-skull
+(set-fontset-font t
+                  (cons (decode-char 'ucs #xfb8a)
+                        (decode-char 'ucs #xfb8a))
+                  "FiraCode Nerd Font")
+
 ;; sidebar
 (use-package neotree)
 

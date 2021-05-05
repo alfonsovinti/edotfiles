@@ -9,15 +9,19 @@
 ;; edf-core.el
 
 ;; UTF-8 everything!
-(set-charset-priority 'unicode)
-(setq locale-coding-system   'utf-8)   ; pretty
-(set-terminal-coding-system  'utf-8)   ; pretty
-(set-keyboard-coding-system  'utf-8)   ; pretty
-(set-selection-coding-system 'utf-8)   ; please
-(prefer-coding-system        'utf-8)   ; with sugar on top
-;; (set-language-environment "UTF-8")
+(set-charset-priority        'unicode)
+(set-language-environment    "UTF-8")
+(prefer-coding-system        'utf-8)
 (set-default-coding-systems  'utf-8)
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(set-terminal-coding-system  'utf-8)
+(set-keyboard-coding-system  'utf-8)
+(set-selection-coding-system 'utf-8)
+
+;; (setq locale-coding-system 'utf-8)
+;; (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+;; Treat clipboard input as UTF-8 string first; compound text next, etc.
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
 ;; Let me write `y` or `n` even for important stuff
 ;; that would normally require me to fully type `yes` or `no`.

@@ -34,11 +34,13 @@
 ;  :config (load-theme 'nord t))
 
 (use-package doom-themes
+  :init
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-nord t)
+  (load-theme 'doom-purple-nord t)
   ;; Configure neotree theme
   (setq doom-themes-neotree-file-icons t)
   (doom-themes-neotree-config)

@@ -237,6 +237,9 @@
 (add-hook 'minibuffer-setup-hook #'edf-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'edf-minibuffer-exit-hook)
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package rainbow-mode)
 (use-package diminish)
 (use-package fringe-helper)

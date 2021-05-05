@@ -34,6 +34,12 @@
 ;(setq cursor-in-non-selected-windows nil)
 ;(setq highlight-nonselected-windows nil)
 
+;; scrolling
+(setq scroll-conservatively 101) ;; value greater than 100 gets rid of half page jumping
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 3))) ;; how many lines at a time
+(setq mouse-wheel-progressive-speed t) ;; accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
 ;; no make backup files
 (setq make-backup-files nil)
 

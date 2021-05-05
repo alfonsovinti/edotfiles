@@ -196,7 +196,7 @@
 (add-hook 'ranger-mode-hook
           (lambda ()
             (set-face-background 'hl-line "#b48ead")
-            (set-face-foreground 'hl-line "#3b4252")
+            (set-face-foreground 'hl-line "#eceff4")
             (add-hook 'kill-buffer-hook
                       (lambda ()
                         (set-face-background 'hl-line edf--hl-line-background)

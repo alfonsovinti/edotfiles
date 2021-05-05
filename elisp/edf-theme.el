@@ -36,6 +36,8 @@
 (use-package doom-themes
   :init
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  ;; :custom
+  ;; (doom-purple-nord-region-highlight 'snowstorm)
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled

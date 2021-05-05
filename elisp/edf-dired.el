@@ -191,6 +191,18 @@
 ;;   :hook (dired-mode . dired-rainbow-listing-mode))
 ;ranger-mode-load-hook
 
+(defvar edf--hl-line-background (face-background 'hl-line))
+
+(add-hook 'ranger-mode-hook
+          (lambda ()
+            (set-face-background 'hl-line "#b48ead")
+            (set-face-foreground 'hl-line "#3b4252")
+            (add-hook 'kill-buffer-hook
+                      (lambda ()
+                        (set-face-background 'hl-line edf--hl-line-background)
+                        (set-face-foreground 'hl-line nil)
+                        ) nil t)))
+
 (use-package ranger
   :after dired
   :defer t)

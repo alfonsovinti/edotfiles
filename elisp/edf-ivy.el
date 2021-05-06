@@ -50,13 +50,40 @@
   :after ivy
   :init (ivy-rich-mode 1))
 
-; (use-package ivy-prescient
-;   :after counsel
-;   :custom
-;   (ivy-prescient-enable-filtering nil)
-;   :config
-;   ;; sorting remembered across sessions!
-;   ;(prescient-persist-mode 1)
-;   (ivy-prescient-mode 1))
+(use-package flx  ;; Improves sorting for fuzzy-matched results
+  :after ivy
+  :defer t
+  :init
+  (setq ivy-flx-limit 10000))
+
+(use-package wgrep)
+
+(use-package ivy-posframe
+  :disabled
+  :custom
+  (ivy-posframe-width      115)
+  (ivy-posframe-min-width  115)
+  (ivy-posframe-height     10)
+  (ivy-posframe-min-height 10)
+  :config
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+  (setq ivy-posframe-parameters '((parent-frame . nil)
+                                  (left-fringe . 8)
+                                  (right-fringe . 8)))
+  (ivy-posframe-mode 1))
+
+(use-package prescient
+  :after counsel
+  :config
+  (prescient-persist-mode 1))
+
+(use-package ivy-prescient
+  :after prescient
+  ;; :custom
+  ;; (ivy-prescient-enable-filtering nil)
+  :config
+  ;; ;; sorting remembered across sessions!
+  ;; (prescient-persist-mode 1)
+  (ivy-prescient-mode 1))
 
 (provide 'edf-ivy)

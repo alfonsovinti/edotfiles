@@ -113,4 +113,8 @@
   (general-create-definer edf-ltrl-c-keys
     :prefix "C-c"))
 
+;; stateful keymaps
+(use-package hydra
+  :defer 1)
+
 (provide 'edf-evil-mode)

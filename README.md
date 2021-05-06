@@ -1,8 +1,9 @@
 # Emacs dotfiles
 
 # TODO
-Enabel italic https://emacs.stackexchange.com/questions/61607/firacode-font-not-rendering-italics
-Fix icon font
+  - Enabel italic https://emacs.stackexchange.com/questions/61607/firacode-font-not-rendering-italics
+  - Fix icon font
+  - Add https://github.com/alphapapa/bufler.el
 
 # Key bindings
 

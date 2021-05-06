@@ -95,7 +95,10 @@
 (setq require-final-newline t)
 
 ;; delete trailing whitespace before save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(use-package ws-butler
+  :hook ((text-mode . ws-butler-mode)
+         (prog-mode . ws-butler-mode)))
 
 ;; don't put intitial text in scratch buffer
 (setq initial-scratch-message nil)
@@ -165,6 +168,12 @@
 
 ;; show matching parentheses
 (show-paren-mode 1)
+;; https://www.emacswiki.org/emacs/ShowParenMode
+;; (use-package paren
+;;   :straight nil
+;;   :config
+;;   (set-face-attribute 'show-paren-match-expression nil :background "#363e4a")
+;;   (show-paren-mode 1))
 
 ;; highlight current line.
 (global-hl-line-mode t)
@@ -285,5 +294,26 @@
       (setq edf-toggle-window-zoom--selected-window (selected-window))
       (setq edf-toggle-window-zoom--window-configuration (current-window-configuration))
       (zoom))))
+
+;; alert
+;; showing notifications from other packages in a variety of ways
+(use-package alert
+  :commands alert
+  :config
+  (setq alert-default-style 'notifications))
+
+;; autosave file
+(use-package super-save
+  :defer 1
+  :diminish super-save-mode
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t)
+  (setq super-save-remote-files nil))
+
+;; Set default connection mode to SSH, use Cygwin on windows
+(if is-windows
+  (setq tramp-default-method "sshx")
+  (setq tramp-default-method "ssh"))
 
 (provide 'edf-core)

@@ -300,7 +300,9 @@
 (use-package alert
   :commands alert
   :config
-  (setq alert-default-style 'notifications))
+  (if is-windows
+    (setq alert-default-style 'message)
+    (setq alert-default-style 'notifications)))
 
 ;; autosave file
 (use-package super-save

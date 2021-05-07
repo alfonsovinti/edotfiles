@@ -8,8 +8,8 @@
 ;;
 ;; edf-eshell-prompt.el
 
-(setq edf--eshell-prompt-symbol "ﮊ ")
-(setq edf--eshell-prompt-vicmd-symbol "ﮊ ")
+(setq edf--eshell-prompt-symbol "")
+(setq edf--eshell-prompt-vicmd-symbol "")
 
 (defun read-file (file-path)
   (with-temp-buffer
@@ -68,11 +68,13 @@
       (propertize " at " 'face `(:foreground "#eceff4"))
       (propertize (format-time-string "%I:%M:%S %p") 'face `(:foreground "#ebcb8b"))
       "\n"
+      (propertize "ﮊ" 'face `(:foreground "#b48ead" :height 1.2 :weight 'bold))
+      " "
       (if (= (user-uid) 0)
         (propertize edf--eshell-prompt-symbol 'face `(:foreground "#bf616a" :weight 'bold))
         (propertize edf--eshell-prompt-symbol 'face `(:foreground "#a3be8c" :weight 'bold :height 1.2)))
       (propertize " " 'face `(:foreground "#eceff4")))))
 
-(setq edf--eshell-prompt-regexp (concat "^" edf--eshell-prompt-symbol " "))
+(setq edf--eshell-prompt-regexp (concat "^ﮊ " edf--eshell-prompt-symbol " "))
 
 (provide 'edf-eshell-prompt)

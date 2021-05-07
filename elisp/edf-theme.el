@@ -35,7 +35,7 @@
 
 (use-package doom-themes
   :init
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/config/themes")
   ;; :custom
   ;; (doom-purple-nord-region-highlight 'snowstorm)
   :config

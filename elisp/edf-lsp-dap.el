@@ -27,13 +27,18 @@
   "lX" 'lsp-execute-code-action)
 
 (use-package lsp-ui
-  :commands lsp-ui-mode)
-  ;; :hook (lsp-mode . lsp-ui-mode)
-  ;; :config
-  ;; (setq lsp-ui-sideline-enable t)
-  ;; (setq lsp-ui-sideline-show-hover nil)
-  ;; (setq lsp-ui-doc-position 'bottom)
-  ;; (lsp-ui-doc-show))
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-sideline-enable t)
+  (setq lsp-ui-sideline-show-hover nil)
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-position 'bottom))
+
+(use-package flycheck
+  ;; TODO https://www.flycheck.org/en/latest/user/error-reports.html
+  ;; find (Show indicators in the left margin)
+  :hook (lsp-mode . flycheck-mode))
 
 (use-package dap-mode)
   ;; :custom
@@ -43,9 +48,6 @@
   ;; (dap-tooltip-mode 1)
   ;; (require 'dap-node)
   ;; (dap-node-setup))
-
-(use-package flycheck)
-  ;; :hook (lsp-mode . flycheck-mode))
 
 ;;; end edf-lsp-dap.el
 (provide 'edf-lsp-dap)

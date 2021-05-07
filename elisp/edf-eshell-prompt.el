@@ -8,8 +8,8 @@
 ;;
 ;; edf-eshell-prompt.el
 
-(setq edf--eshell-prompt-symbol "")
-(setq edf--eshell-prompt-vicmd-symbol "")
+(setq edf--eshell-prompt-symbol "ﮊ ")
+(setq edf--eshell-prompt-vicmd-symbol "ﮊ ")
 
 (defun read-file (file-path)
   (with-temp-buffer

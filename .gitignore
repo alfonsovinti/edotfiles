@@ -7,3 +7,4 @@
 !init.el
 !elisp/
 !config/eshell/aliases
+!config/themes/doom-purple-nord-theme.el

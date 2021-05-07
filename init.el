@@ -53,6 +53,8 @@
 (require 'edf-eshell-prompt)
 ;; shells
 (require 'edf-shells)
+;; lsp & dap
+(require 'edf-lsp-dap)
 ;; langauges
 (require 'edf-langauges)
 ;; keymap

@@ -5,6 +5,18 @@
   - Fix icon font
   - Add https://github.com/alphapapa/bufler.el
 
+# LSP
+  - (js & ts) npm i -g typescript-language-server; npm i -g typescript
+  - (json) M-x lsp-install-server RET json-ls RET - or - npm i -g vscode-json-languageserver
+  - (bash) M-x lsp-install-server RET bash-ls RET - or - npm i -g bash-language-server
+  - (css less sass scss) M-x lsp-install-server RET css-ls RET - or - npm i -g vscode-css-languageserver-bin
+  - (html) M-x lsp-install-server RET html-ls RET - or - npm i -g vscode-html-languageserver-bin
+  - (markdown) npm i -g unified-language-server
+  - (php) npm i -g intelephense
+  - (python) npm install -g pyright
+  - (yaml) npm install -g yaml-language-server
+
+
 # Key bindings
 
 ## Common
